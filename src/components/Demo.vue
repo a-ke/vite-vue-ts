@@ -2,11 +2,12 @@
 	<div class="test">
 		<span>{{ count }}</span>
 		<el-button type="primary" @click="changeHandler">增加</el-button>
+		<span class="el-icon-ice-cream-square"></span>
 	</div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, Ref, ref } from 'vue';
 export default defineComponent({
 	name: 'Demo',
 	props: {
@@ -17,7 +18,7 @@ export default defineComponent({
 	},
 	setup(props, context) {
 		console.log(props, context);
-		let count = ref(props.initNum);
+		let count: Ref<number> = ref(props.initNum);
 
 		function changeHandler() {
 			count.value += 1;
